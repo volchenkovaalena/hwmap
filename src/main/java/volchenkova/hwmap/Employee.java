@@ -7,17 +7,25 @@ public class Employee {
     private static String name;
     private static String surname;
 
+    private static int salary;
+    private static int departmentID;
+
 
     public Employee ( String name, String surname ) {
         this.name = name;
         this.surname = surname;
+        this.salary = salary;
+        this.departmentID = departmentID;
     }
-    public static String getName () {
+    public  String getName () {
         return name;
     }
-    public static String getSurname () {
+    public  String getSurname () {
         return surname;
     }
+
+    public int getSalary() {return salary;}
+    public int getDepartmentID(){return  departmentID;}
     public void setSurname ( String surname ) {
         this.surname = surname;
     }
@@ -28,7 +36,7 @@ public class Employee {
 
     public String toString () {
         return  "ФИО: " + this.surname+ " " +
-                 this.name;
+                 this.name + " " + this.salary + " " + this.departmentID;
     }
 
     @Override

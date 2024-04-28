@@ -2,6 +2,8 @@ package volchenkova.hwmap;
 
 import org.springframework.stereotype.Service;
 
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,14 +14,15 @@ public class EmployeeServiceImpl implements EmployeeService{
 
 
     @Override
-    public Employee add ( String name, String surname ) {
+    public Employee add ( String name, String surname, int salary, int depertmentID ) {
         Employee employee = new Employee (  name, surname );
-        if (storage.containsKey ( name + surname )){
-            throw new EmployeeExistException ( "такой сотрудник уже есть в базе" );
-        }
-        storage.put ( name + surname, employee );
-        return employee;
+       if (storage.containsKey ( name + surname )){
+           throw new EmployeeExistException ( "такой сотрудник уже есть в базе" );
+       }
+    storage.put ( name + surname, employee );
+    return employee;
     }
+
 
     @Override
     public void remove ( String name, String surname ) {
@@ -36,5 +39,10 @@ public class EmployeeServiceImpl implements EmployeeService{
             throw new EmployeeNotFoundException ( "такого сотрудника не существует" );
         }
         return storage.get ( name + surname );
+    }
+
+    @Override
+    public Collection<Employee> findAll () {
+        return Collections.unmodifiableCollection (storage.values() );
     }
 }
