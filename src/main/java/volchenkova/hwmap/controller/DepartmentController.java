@@ -1,16 +1,18 @@
-package volchenkova.hwmap;
+package volchenkova.hwmap.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import volchenkova.hwmap.service.DepartmentService;
+import volchenkova.hwmap.model.Employee;
 
 import java.util.List;
 import java.util.Map;
 
 @RestController
 @RequestMapping
-public class DepartmentController implements DepartmentService{
+public class DepartmentController {
     private final DepartmentService departmentService;
 
     public DepartmentController ( DepartmentService departmentService ) {
@@ -34,7 +36,7 @@ public class DepartmentController implements DepartmentService{
 
     @GetMapping(path = "/all", params = {"departmentID"})
     public Map<Integer, List<Employee>> findAllEmployeesSortedByName( @RequestParam int departmentID) {
-        return departmentService.findAllEmployeesSortedByName();
+        return departmentService.findAllEmployeesSortedByName(departmentID);
     }
 
 }

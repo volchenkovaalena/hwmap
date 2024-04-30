@@ -1,6 +1,10 @@
-package volchenkova.hwmap;
+package volchenkova.hwmap.service.impl;
 
 import org.springframework.stereotype.Service;
+import volchenkova.hwmap.model.Employee;
+import volchenkova.hwmap.exception.EmployeeExistException;
+import volchenkova.hwmap.exception.EmployeeNotFoundException;
+import volchenkova.hwmap.service.EmployeeService;
 
 import java.util.Collection;
 import java.util.Collections;
@@ -8,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class EmployeeServiceImpl implements EmployeeService{
+public class EmployeeServiceImpl implements EmployeeService {
 
     private final Map <String, Employee> storage = new HashMap<> (  );
 

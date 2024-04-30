@@ -1,4 +1,4 @@
-package volchenkova.hwmap;
+package volchenkova.hwmap.model;
 
 import java.util.Objects;
 

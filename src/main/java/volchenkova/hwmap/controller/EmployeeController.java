@@ -1,9 +1,11 @@
-package volchenkova.hwmap;
+package volchenkova.hwmap.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import volchenkova.hwmap.model.Employee;
+import volchenkova.hwmap.service.EmployeeService;
 
 @RestController
 @RequestMapping ("/employee")
@@ -14,7 +16,7 @@ public class EmployeeController {
         this.employeeService = employeeService;
     }
     @GetMapping ("/add")
-    public  Employee addEmployee ( @RequestParam String name, @RequestParam String surname, @RequestParam int salary, @RequestParam int departmentID) {
+    public Employee addEmployee ( @RequestParam String name, @RequestParam String surname, @RequestParam int salary, @RequestParam int departmentID) {
         return employeeService.add ( name, surname, salary, departmentID );
     }
 
