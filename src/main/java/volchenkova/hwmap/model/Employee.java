@@ -4,18 +4,17 @@ import java.util.Objects;
 
 public class Employee {
 
-    private static String name;
-    private static String surname;
+    private  String name;
+    private  String surname;
+    private  int salary;
+    private int departmentID;
 
-    private static int salary;
-    private static int departmentID;
 
-
-    public Employee ( String name, String surname ) {
+    public Employee ( String name, String surname, int salary, int departmentID ) {
         this.name = name;
         this.surname = surname;
         this.salary = salary;
-        this.departmentID = departmentID;
+        this.departmentID =departmentID;
     }
     public  String getName () {
         return name;

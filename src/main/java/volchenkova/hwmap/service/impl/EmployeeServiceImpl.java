@@ -18,8 +18,8 @@ public class EmployeeServiceImpl implements EmployeeService {
 
 
     @Override
-    public Employee add ( String name, String surname, int salary, int depertmentID ) {
-        Employee employee = new Employee (  name, surname );
+    public Employee add ( String name, String surname, int salary, int departmentID ) {
+        Employee employee = new Employee (  name, surname, salary, departmentID );
        if (storage.containsKey ( name + surname )){
            throw new EmployeeExistException ( "такой сотрудник уже есть в базе" );
        }
